@@ -22,7 +22,7 @@ public class AppPapeleria {//extends Throwable{
         Borrador borr1 = new Borrador("Borrador", 0.50, 70, "Lapiz");
         Borrador borr2 = new Borrador("Borrador", 1.50, 70, "Esfero");
 
-        Producto[] inventario = new Producto[]{lp1,lp1};
+        Producto[] inventario = new Producto[]{lp1, lp1};
         //Cliente
         Cliente cl1 = new Cliente("1234567890", "Juan", "juan@juan", "Casa de Juan", "Telefono de Juan");
         Cliente cl2 = new Cliente("1316630175", "Elkin", "Elkin@epn", "Quito", "0987654321");
@@ -162,20 +162,29 @@ public class AppPapeleria {//extends Throwable{
 
                         break;
                     case 4:
+                        do {
+                            if (inventario != null) {
+                                for (int i = 0; i < inventario.length; i++) {
+                                    System.out.println(inventario[i]);
+                                }
+                            } else {
+                                System.out.println("Inventario no encontrado");
+                            }
+                        } while (!verificacion);
 
                         break;
 
                     case 5:
-                        if(inventario ==null){
+                        if (inventario == null) {
 
-                        }else{
+                        } else {
                             System.out.println("Aun no se ha registrado ninguna compra");
                         }
                         break;
                     case 6:
-                        if(inventario ==null){
+                        if (inventario == null) {
 
-                        }else{
+                        } else {
                             System.out.println("Aun no se ha registrado ninguna reserva");
                         }
                         break;
