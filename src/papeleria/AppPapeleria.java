@@ -12,17 +12,18 @@ public class AppPapeleria {//extends Throwable{
 
         //Producto
         //lapiz
-        Lapiz lp1 = new Lapiz("Bic", 0.75, "HB");
-        Lapiz lp2 = new Lapiz("Bic", 0.65, "2B");
+        Lapiz lp1 = new Lapiz("Lapiz Bic", 0.75, "HB");
+        Lapiz lp2 = new Lapiz("Lapiz Pelikan", 0.65, "2B");
         //Cuaderno
-        Cuaderno cuad1 = new Cuaderno("Norma", 1.25, 60, "cuadros");
-        Cuaderno cuad2 = new Cuaderno("Norma", 1.5, 60, "Dos lineas");
-        Cuaderno cd1 = new Cuaderno("Escribir", 1.50, 100, "Una linea");
+        Cuaderno cuad1 = new Cuaderno("Cuaderno Norma", 1.25, 60, "cuadros");
+        Cuaderno cuad2 = new Cuaderno("Cuaderno Astro", 1.5, 60, "Dos lineas");
+        Cuaderno cd1 = new Cuaderno("Cuaderno Escribir", 1.50, 100, "Una linea");
         //Borrador
-        Borrador borr1 = new Borrador("Borrador", 0.50, 70, "Lapiz");
-        Borrador borr2 = new Borrador("Borrador", 1.50, 70, "Esfero");
+        Borrador borr1 = new Borrador("Borrador queso", 0.50, 70, "Lapiz");
+        Borrador borr2 = new Borrador("Borrador bicolor", 1.50, 70, "Esfero");
 
-        Producto[] inventario = new Producto[]{lp1, lp1};
+        Producto[] inventario = new Producto[]{lp1, lp2, cuad1, cuad2, cd1, borr1, borr2, cd1, cd1, cd1, borr1, borr2, borr2};
+
         //Cliente
         Cliente cl1 = new Cliente("1234567890", "Juan", "juan@juan", "Casa de Juan", "Telefono de Juan");
         Cliente cl2 = new Cliente("1316630175", "Elkin", "Elkin@epn", "Quito", "0987654321");
@@ -162,15 +163,31 @@ public class AppPapeleria {//extends Throwable{
 
                         break;
                     case 4:
-                        do {
-                            if (inventario != null) {
-                                for (int i = 0; i < inventario.length; i++) {
-                                    System.out.println(inventario[i]);
-                                }
-                            } else {
-                                System.out.println("Inventario no encontrado");
-                            }
-                        } while (!verificacion);
+//
+//                        // Imprimir la tabla
+//                        System.out.printf("%-10s %-50s %-10s\n", "Unidades", "Producto", "Precio");
+//                        System.out.println("------------------------------------------------------------");
+//
+//                        // Recorremos el arreglo de productos
+//                        for (int i = 0; i < inventario.length; i++) {
+//                            // Si ya fue contado este producto, lo saltamos
+//                            if (yaContado[i]) continue;
+//
+//                            Producto productoActual = inventario[i];
+//                            int cantidad = 0;
+//
+//                            // Contamos las repeticiones de este producto
+//                            for (int j = 0; j < inventario.length; j++) {
+//                                if (productoActual.toString().equals(inventario[j].toString())) {
+//                                    cantidad++;
+//                                    yaContado[j] = true;  // Marcamos este producto como contado
+//                                }
+//                            }
+//
+//                            // Imprimir la información del producto
+//                            System.out.printf("%-10d %-50s %-10.2f\n", cantidad, productoActual.getNombre(), productoActual.getPrecio());
+//                        }
+                        Comprobante.imprimirProductos(inventario);
 
                         break;
 
@@ -182,12 +199,24 @@ public class AppPapeleria {//extends Throwable{
                         }
                         break;
                     case 6:
-                        if (inventario == null) {
-
-                        } else {
-                            System.out.println("Aun no se ha registrado ninguna reserva");
-                        }
+                        do {
+                            if (inventario != null) {
+                                for (int i = 0; i < inventario.length; i++) {
+                                    System.out.println(inventario[i]);
+                                }
+                            } else {
+                                System.out.println("Inventario no encontrado");
+                            }
+                        } while (!verificacion);
+//                        if (inventario == null) {
+//
+//                        } else {
+//                            System.out.println("Aun no se ha registrado ninguna reserva");
+//                        }
                         break;
+
+                    case 7:
+
                     default:
                         System.out.println("Error Page 404");
                 }
@@ -254,3 +283,19 @@ public class AppPapeleria {//extends Throwable{
         } while (!verificacion);
     }
 }
+/*
+hola que tal, entiendo tenemos estas tareas para el jueves:  package papeleria
+1.	Arreglo de todos los productos de inventario,
+2.	Arreglo de todos los productos de la compra/reserva
+
+3.	verificar que el objeto sea del tipo "Lápiz" y que su método equals coincida. Luego, se debe recorrer el objeto y
+     comparar sus características para encontrar las coincidencias. Se debe tener en cuenta la disponibilidad de inventario:
+     si se tienen 3 unidades y se solicitan 4, no se podrá realizar la venta directamente, y se deberá mostrar un mensaje de advertencia.
+
+4.	Por binary search(), dado un arreglo de productos, tengo indice y producto, comprar y buscar por índice del objeto.
+5.	A partir de dicho índice, se debe proceder a anular el producto de la matriz original y agregarlo a un nuevo arreglo tipo Venta[].
+6.	La clase Factura debe admitir el arreglo de tipo Producto[].
+
+7.	marco teorico, biblioteca Arrays, funciones y qué hace,
+y para la proxima, hacerlo en ArrayList…
+ */

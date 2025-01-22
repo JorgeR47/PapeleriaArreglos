@@ -31,44 +31,44 @@ public class Factura extends Comprobante implements IVA {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
-    
+
     public boolean isAnulacion() {
-        
-        if(anulacion) {
-            
+
+        if (anulacion) {
+
             System.out.println("Esta factura ha sido anulada");
         } else {
-            
+
             System.out.println("Esta factura es valida");
         }
         return anulacion;
     }
-    
+
     public void setAnulacion(boolean anulacion) {
         this.anulacion = anulacion;
     }
-    
+
     @Override
     public double impuestoIVA() {
 
-        return (this.producto.getPrecio() * (1+IVA));
+        return (this.producto.getPrecio() * (1 + IVA));
     }
 
     @Override
     public String toString() {
-        return String.format("%s%s%sPrecio Final: %.2f",super.toString(),this.cliente.toString(),
-                this.vendedor.toString(),this.impuestoIVA());
+        return String.format("%s%s%sPrecio Final: %.2f", super.toString(), this.cliente.toString(),
+                this.vendedor.toString(), this.impuestoIVA());
     }
-    
+
     @Override
     public void finalize() throws Throwable {
-        
+
         try {
-            
+
             this.contador--;
-            System.out.printf("Se ha eliminado el comprobante %d.%n",this.numero);
+            System.out.printf("Se ha eliminado el comprobante %d.%n", this.numero);
         } finally {
-            
+
             super.finalize();
         }
     }
@@ -86,14 +86,16 @@ public class Factura extends Comprobante implements IVA {
 
     @Override
     public int hashCode() {
-         int result = 0;
-         if (cliente != null) {
-         result += cliente.hashCode();
-         }
-         if (vendedor != null) {
-         result += vendedor.hashCode(); 
-         }
-          result += anulacion ? 1 : 0; 
-         return result;
-     }
+        int result = 0;
+        if (cliente != null) {
+            result += cliente.hashCode();
+        }
+        if (vendedor != null) {
+            result += vendedor.hashCode();
+        }
+        result += anulacion ? 1 : 0;
+        return result;
+    }
+
+
 }
